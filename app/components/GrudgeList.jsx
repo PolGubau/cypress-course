@@ -42,7 +42,8 @@ export default function GrudgeList(){
         <div style={{margin: '20px'}}>
             <h3 style={{margin: '20px 0px'}}>{title}</h3>
             <div>
-            <TextField 
+                <TextField
+                    data-test="grudge-input"
             label="Add Grudge" 
             variant="filled" 
             value={inputValue}
@@ -50,10 +51,10 @@ export default function GrudgeList(){
             style={{backgroundColor: 'white'}}
             />
             </div>
-            <Button onClick={addGrudge}>
+            <Button onClick={addGrudge} data-test="add-grudge-button">
                 Add Grudge
             </Button>
-            <ul style={{color: 'white', listStyleType: 'none'}}>
+            <ul data-test="grudge-list" style={{color: 'white', listStyleType: 'none'}}>
                 {
                     grudges.length > 0 && (
                         grudges.map((g) => {
@@ -71,7 +72,7 @@ export default function GrudgeList(){
                 }
             </ul>
             {
-                grudges.length > 0 && <Button onClick={clearGrudges}>Clear</Button>
+                grudges.length > 0 && <Button data-test="clear-button" onClick={clearGrudges}>Clear</Button>
             }
         </div>
     )

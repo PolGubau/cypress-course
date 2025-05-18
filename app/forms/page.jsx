@@ -37,16 +37,19 @@ export default function FormsPage(){
     const [subMessage, setSubMessage] = useState('')
     return (
         <main className={styles.main}>
-            <h1 className={styles.header}>Testing Forms</h1>
+            <h1 data-test="forms-title" className={styles.header}>Testing Forms</h1>
             <ItemsAccordion items={items} />
             <TextField 
+            data-test="email-input"
             className={styles.input} 
             label="Email" 
             variant="filled" 
             value={inputValue}
             onChange={e => setInputValue(e.target.value)}
             />
-            <Button onClick={() => {
+            <Button
+            data-test="subscribe-button"
+                onClick={() => {
                 if (!inputValue.includes('.com') ){
                     setSubMessage(`Invalid email: ${inputValue}!`)
                 } else if (inputValue.length){
@@ -62,7 +65,7 @@ export default function FormsPage(){
                 Subscribe
             </Button>
             {
-                subMessage && <p>{subMessage}</p>
+                subMessage && <p data-test="output-message">{subMessage}</p>
             }
         </main>
     )

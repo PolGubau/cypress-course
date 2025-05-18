@@ -6,11 +6,12 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function ItemsAccordion({ items }) {
+	const getTestId = (id) => `accordion-item-${id}`;
 	return (
 		<div style={{ maxWidth: "70vw", minWidth: "50vw" }}>
 			{items.map((item) => {
 				return (
-					<Accordion key={item.id}>
+					<Accordion key={item.id} data-test={getTestId(item.id)}>
 						<AccordionSummary
 							expandIcon={<ExpandMoreIcon />}
 							id="panel1a-header"
